@@ -1,0 +1,80 @@
+Jubilee Witte
+1.
+def Merge(L1,L2):
+    L=[]
+    global ct_global
+    while len(L1) and len(L2):
+        if L1[0] <= L2[0]:
+            L.append(L1.pop(0))
+            ct_global +=1
+        else:
+            L.append(L2.pop(0))
+    if len(L1):
+        for i in range(len(L1)):
+            L.append(L1.pop(0))
+            ct_global +=1
+
+    if len(L2):
+        for i in range(len(L2)):
+            L.append(L2.pop(0))
+            ct_global +=1
+
+    return L
+
+def MergeSort(L):
+    global ct_global
+    ct_global=0
+    if len(L)<2:
+        return L
+    L1=L[0: len(L)//2]
+    L2=L[ len(L)//2 : len(L)]
+    L1=MergeSort(L1)
+    L2=MergeSort(L2)
+    L3=Merge(L1,L2)
+    #print(ct_global)
+    return L3
+
+def MergeSortWrapper(L):
+    global ct_global
+    ct_global=0
+    MergeSort(L)
+    print(ct_global)
+
+When
+L=[3,2,1]
+MergeSortWrapper(L) returns
+2. 
+When L=[5,4,3,2,1]
+MergeSortWrapper(L) returns 
+4.
+
+2. add this new script to simple.py and run new saved program
+import random
+L=[]
+for i in range(50):
+    L.append(random.randint(0,100))
+>>> MergeSortWrapper(L)
+60
+
+3)>>> MergeSortWrapper(L)
+203
+
+4)
+a.21
+b.29
+c.100100100110
+d.1000001011
+e. 11111010110011101101
+f.255
+g.125525
+h.55BA
+
+5. 
+123455, Dark Navy Blue
+226677, Medium-Dark Aqua
+99EECC, Minty Green
+9999FF Lilac???
+CC0052, Cranberry
+CC00CC, Purple or lilac
+FF4D94, Pink
+FF5522, Reddish-Orange
